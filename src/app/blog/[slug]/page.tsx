@@ -1,16 +1,13 @@
-import { use } from 'react'
-
 type Params = Promise<{ slug: string }>
 
 interface Props { params: Params }
 
-export default function Slug(props: Props) {
-  const { params } = props
-  const { slug } = use(params)
-
+export default async function Slug({ params }: Props) {
+  const { slug } = await params
+  await new Promise<void>(resolve => setTimeout(resolve, 4000))
   return (
-    <div className="p-4">
-      {`Slug:${slug}`}
+    <div>
+      <div>{`Slug:${slug}`}</div>
     </div>
   )
 }

@@ -4,7 +4,7 @@ export default function Blog() {
   const list = Array.from({ length: 10 }, (_, i) => i)
   return (
     <div>
-      <ul className="p-4">
+      <ul>
         {
           list.map(item => (
             <li key={item}>
