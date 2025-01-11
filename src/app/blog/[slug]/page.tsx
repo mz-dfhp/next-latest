@@ -1,8 +1,16 @@
-export default async function Slug({ params }: { params: { slug: string } }) {
-  const { slug } = await params
+import { use } from 'react'
+
+type Params = Promise<{ slug: string }>
+
+interface Props { params: Params }
+
+export default function Slug(props: Props) {
+  const { params } = props
+  const { slug } = use(params)
+
   return (
-    <div>
-      {` Slug:${slug}`}
+    <div className="p-4">
+      {`Slug:${slug}`}
     </div>
   )
 }

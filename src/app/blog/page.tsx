@@ -1,11 +1,18 @@
-import React from 'react'
+import Link from 'next/link'
 
 export default function Blog() {
+  const list = Array.from({ length: 10 }, (_, i) => i)
   return (
     <div>
       <ul className="p-4">
         {
-          Array.from({ length: 10 }, (_, i) => i).map(item => <li key={item}>{item}</li>)
+          list.map(item => (
+            <li key={item}>
+              <Link href={`/blog/${item}`}>
+                {`Blog: ${item}`}
+              </Link>
+            </li>
+          ))
         }
       </ul>
     </div>
