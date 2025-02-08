@@ -35,10 +35,12 @@ export default function RootLayout({
             })
           }
         </header>
-        <main className="p-4 min-h-[90vh]">
+        <main className="p-4">
           {children}
         </main>
-        <footer className="h-10 bg-slate-200 p-4"></footer>
+        <footer className="bg-slate-200 p-4 flex justify-center">
+          app footer
+        </footer>
       </body>
     </html>
   )
