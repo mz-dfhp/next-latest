@@ -30,7 +30,12 @@ export default function RootLayout({
       >
         <header className="h-10 bg-slate-200 p-4 flex items-center gap-x-2 shadow-sm">
           {
-            ['dashboard', 'blog', 'counter'].map((item) => {
+            [
+              'dashboard',
+              'blog',
+              'counter',
+              'swr',
+            ].map((item) => {
               return <Link className="p-2" key={item} href={`/${item}`}>{item}</Link>
             })
           }
