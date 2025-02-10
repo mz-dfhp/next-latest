@@ -11,8 +11,24 @@ export default function Home() {
         className="dark:invert"
         src="/next.svg"
         alt="Next.js logo"
-        width={180}
-        height={38}
+        width={197}
+        height={40}
+        priority
+      />
+      <Image
+        className="dark:invert"
+        src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+        alt="test1"
+        width={502}
+        height={493}
+        priority
+      />
+      <Image
+        className="dark:invert"
+        src="https://storage.googleapis.com/ai-application-test/shortfilm/goodshort/covercover-IIXNmGfv2C.webp"
+        alt="test2"
+        width={150}
+        height={200}
         priority
       />
     </div>
