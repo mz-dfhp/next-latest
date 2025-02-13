@@ -1,19 +1,18 @@
-import type { NextRequest } from 'next/server'
-import { NextResponse } from 'next/server'
+import createMiddleware from 'next-intl/middleware'
+import { routing } from './i18n/routing'
 
-// This function can be marked `async` if using `await` inside
-export function middleware(request: NextRequest) {
-  console.log('中间件', request.nextUrl.pathname)
-  return NextResponse.next()
-}
-
-// See "Matching Paths" below to learn more
+export default createMiddleware(routing)
 export const config = {
   matcher: [
+    // Enable a redirect to a matching locale at the root
     '/',
-    '/blog',
-    '/blog/:path*',
-    '/counter',
-    '/dashboard',
+
+    // Set a cookie to remember the previous locale for
+    // all requests that have a locale prefix
+    '/(zh|en)/:path*',
+
+    // Enable redirects that add missing locales
+    // (e.g. `/pathnames` -> `/en/pathnames`)
+    '/((?!_next|_vercel|.*\\..*).*)',
   ],
 }

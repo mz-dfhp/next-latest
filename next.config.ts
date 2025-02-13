@@ -1,5 +1,7 @@
 import type { NextConfig } from 'next'
+import createNextIntlPlugin from 'next-intl/plugin'
 
+const withNextIntl = createNextIntlPlugin()
 const nextConfig: NextConfig = {
   // output: 'export', // 启用纯静态导出
   /* config options here */
@@ -7,7 +9,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'zos.alipayobjects.com',
+        hostname: 'gw.alipayobjects.com',
         port: '',
         pathname: '/**', // 允许所有路径
         search: '',
@@ -23,4 +25,4 @@ const nextConfig: NextConfig = {
   },
 }
 
-export default nextConfig
+export default withNextIntl(nextConfig)
