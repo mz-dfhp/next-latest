@@ -1,7 +1,13 @@
+import type { NextRequest } from 'next/server'
 import createMiddleware from 'next-intl/middleware'
 import { routing } from './i18n/routing'
 
-export default createMiddleware(routing)
+const intlMiddleware = createMiddleware(routing)
+export function middleware(request: NextRequest) {
+  console.log('中间件:', request.nextUrl.pathname)
+  return intlMiddleware(request)
+}
+
 export const config = {
   matcher: [
     // Enable a redirect to a matching locale at the root
