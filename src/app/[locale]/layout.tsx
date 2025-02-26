@@ -1,7 +1,6 @@
 import type { Locale } from '@/i18n/routing'
 import type { Metadata } from 'next'
-import AppFooter from '@/components/AppFooter'
-import AppHeader from '@/components/AppHeader'
+import LayoutDefault from '@/components/Layout/Default'
 import { routing } from '@/i18n/routing'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
@@ -34,7 +33,6 @@ export function generateStaticParams() {
 
 export default async function RootLayout({ children, params }: Props) {
   const { locale } = await params
-  console.log(locale)
   // Ensure that the incoming `locale` is valid
   if (!routing.locales.includes(locale as Locale)) {
     console.log(`not includes ${locale}`)
@@ -48,14 +46,12 @@ export default async function RootLayout({ children, params }: Props) {
   return (
     <html lang={locale}>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-[100svh]`}
       >
         <NextIntlClientProvider messages={messages}>
-          <AppHeader />
-          <main className="p-4">
+          <LayoutDefault>
             {children}
-          </main>
-          <AppFooter />
+          </LayoutDefault>
         </NextIntlClientProvider>
       </body>
     </html>
