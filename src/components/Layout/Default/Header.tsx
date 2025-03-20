@@ -29,7 +29,7 @@ export default function Header() {
           }
         </div>
         <div className="ml-auto flex items-center gap-5">
-          <Link href="https://github.com/mz-dfhp/next-latest">
+          <Link href="https://github.com/mz-dfhp/next-latest" className="flex">
             <div
               className="icon-[bi--github] cursor-pointer transition-all hover:scale-[1.2]"
             >

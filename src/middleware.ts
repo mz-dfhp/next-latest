@@ -4,7 +4,6 @@ import { routing } from './i18n/routing'
 
 const intlMiddleware = createMiddleware(routing)
 export function middleware(request: NextRequest) {
-  console.log('中间件:', request.nextUrl.pathname)
   return intlMiddleware(request)
 }
 
